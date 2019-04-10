@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.project.dubbo.mapper.StudioApplyMapper" >
+  <resultMap id="BaseResultMap" type="com.project.dubbo.dto.StudioApply" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="studioname" property="studioname" jdbcType="VARCHAR" />
+    <result column="projectid" property="projectid" jdbcType="INTEGER" />
+    <result column="studioid" property="studioid" jdbcType="INTEGER" />
+    <result column="applytime" property="applytime" jdbcType="TIMESTAMP" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="complete" property="complete" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, studioname, projectid, studioid, applytime, state, complete
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.project.dubbo.dto.StudioApplyExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from studio_apply
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from studio_apply
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from studio_apply
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.project.dubbo.dto.StudioApplyExample" >
+    delete from studio_apply
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.project.dubbo.dto.StudioApply" >
+    insert into studio_apply (id, studioname, projectid, 
+      studioid, applytime, state, 
+      complete)
+    values (#{id,jdbcType=INTEGER}, #{studioname,jdbcType=VARCHAR}, #{projectid,jdbcType=INTEGER}, 
+      #{studioid,jdbcType=INTEGER}, #{applytime,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}, 
+      #{complete,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.project.dubbo.dto.StudioApply" >
+    insert into studio_apply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="studioname != null" >
+        studioname,
+      </if>
+      <if test="projectid != null" >
+        projectid,
+      </if>
+      <if test="studioid != null" >
+        studioid,
+      </if>
+      <if test="applytime != null" >
+        applytime,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="complete != null" >
+        complete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="studioname != null" >
+        #{studioname,jdbcType=VARCHAR},
+      </if>
+      <if test="projectid != null" >
+        #{projectid,jdbcType=INTEGER},
+      </if>
+      <if test="studioid != null" >
+        #{studioid,jdbcType=INTEGER},
+      </if>
+      <if test="applytime != null" >
+        #{applytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="complete != null" >
+        #{complete,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.project.dubbo.dto.StudioApplyExample" resultType="java.lang.Integer" >
+    select count(*) from studio_apply
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update studio_apply
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.studioname != null" >
+        studioname = #{record.studioname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.projectid != null" >
+        projectid = #{record.projectid,jdbcType=INTEGER},
+      </if>
+      <if test="record.studioid != null" >
+        studioid = #{record.studioid,jdbcType=INTEGER},
+      </if>
+      <if test="record.applytime != null" >
+        applytime = #{record.applytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.state != null" >
+        state = #{record.state,jdbcType=INTEGER},
+      </if>
+      <if test="record.complete != null" >
+        complete = #{record.complete,jdbcType=DOUBLE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update studio_apply
+    set id = #{record.id,jdbcType=INTEGER},
+      studioname = #{record.studioname,jdbcType=VARCHAR},
+      projectid = #{record.projectid,jdbcType=INTEGER},
+      studioid = #{record.studioid,jdbcType=INTEGER},
+      applytime = #{record.applytime,jdbcType=TIMESTAMP},
+      state = #{record.state,jdbcType=INTEGER},
+      complete = #{record.complete,jdbcType=DOUBLE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.project.dubbo.dto.StudioApply" >
+    update studio_apply
+    <set >
+      <if test="studioname != null" >
+        studioname = #{studioname,jdbcType=VARCHAR},
+      </if>
+      <if test="projectid != null" >
+        projectid = #{projectid,jdbcType=INTEGER},
+      </if>
+      <if test="studioid != null" >
+        studioid = #{studioid,jdbcType=INTEGER},
+      </if>
+      <if test="applytime != null" >
+        applytime = #{applytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="complete != null" >
+        complete = #{complete,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.project.dubbo.dto.StudioApply" >
+    update studio_apply
+    set studioname = #{studioname,jdbcType=VARCHAR},
+      projectid = #{projectid,jdbcType=INTEGER},
+      studioid = #{studioid,jdbcType=INTEGER},
+      applytime = #{applytime,jdbcType=TIMESTAMP},
+      state = #{state,jdbcType=INTEGER},
+      complete = #{complete,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,113 @@
+*{
+	text-decoration: none;;
+	list-style: none;
+}
+.more{
+	display: inline-block;
+	width: 70px;
+	height: 30px;
+	right: 10px;
+	border: 1px solid #9CD197;
+	line-height: 30px;
+	border-radius: 4px;
+	text-align: center;
+	color: #9CD197;
+	float: right;
+	margin-right: 10px;
+	margin-top: 15px;
+	position: absolute;
+	bottom: 20px;
+	left: 48%;
+	/*margin: 0px auto;*/
+}
+/*“发布项目按钮”*/
+.release{
+	background-color: #2EB135;
+	color: white;
+	border: none;
+	margin-right: 10px;
+}
+.release a{
+	color: white;
+}
+.detail{
+	/*position: absolute;*/
+	display: inline-block;
+	width: 70px;
+	height: 30px;
+	right: 10px;
+	border: 1px solid #9CD197;
+	line-height: 30px;
+	border-radius: 4px;
+	text-align: center;
+	color: #9CD197;
+	float: right;
+	margin-right: 10px;
+	margin-top: 15px;
+}
+.tag{
+	display: inline-block;
+	width: 70px;
+	height: 30px;
+	right: 10px;
+	/*border: 1px solid #9CD197;*/
+	background-color: #5393DE;
+	line-height: 30px;
+	border-radius: 4px;
+	text-align: center;
+	color: white;
+	/*float: left;*/
+	margin-right: 10px;
+	margin-top: 15px;	
+}
+ul{
+	/*float: left;*/
+	display: inline-block;
+	/*margin-left: 0px;*/
+	margin: 0px;
+	padding: 0px;
+}
+.option{
+	/*float: left;*/
+	display: inline;
+	margin-left: 30px;
+
+}
+.item_content
+{
+	height: 120px;
+	width: 100%;
+	border-bottom: #EAECEE 1px solid;	
+}
+.prj_img{
+	width: 160px;
+	height: 100px;
+	margin-top: 15px;
+	float: left;
+}
+.item_name{
+	margin-top: 30px;
+	margin-left: 10px;
+	font-size: 18px;
+}
+.item_info{
+	float: left;
+	width: 600px;
+	height: 100%;
+}
+.item_describes{
+	margin-top: 20px;
+}
+.item_describe
+{
+	display: inline;
+	margin-left: 10px;
+	margin-right: 80px;
+	color: #CCCCCC;
+}
+.item_price{
+	float: right;
+	margin-top: 30px;
+	color: #F99A62;
+	font-size: 20px;
+}

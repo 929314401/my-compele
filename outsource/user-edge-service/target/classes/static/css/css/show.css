@@ -1,0 +1,135 @@
+
+.navbar{
+	padding-bottom: 0px;
+	border:none;
+	border-radius: 0px;
+	margin-bottom: 0px;	
+	box-shadow: 0 1px 2px 0 rgba(30,45,60,.1);
+}
+.navbar-content{
+	width: 80%;
+	margin: 0 auto;
+}
+body{
+	background-color: #F7F7F7
+}
+.pre1,.pre2,.pre3{
+	width: 970px;
+	margin:0px auto;
+	height: 230px;
+	margin-top: 80px;
+}
+.pre2{
+	height: 200px;
+	margin-top: 0px;
+}
+.pre3
+{
+	height: 400px;
+	margin-top: 0px;
+}
+.board1,.board2,.board3{
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	margin: 0 auto;
+	margin-top: 20px;
+	box-shadow: 0 1px 2px 0 rgba(30,45,60,.1);
+}
+.board1_title{
+	padding-top: 30px;
+	margin:0 auto;
+	width: 90%;
+	height: 250px;
+}
+.good_item{
+	width: 180px;
+	height: 150px;
+	margin: 0px 10px;
+	border: 1px solid #EAECEE;
+	border-radius: 5px;
+}
+.good_item_info{
+	height: 100px;
+	border-bottom: #EAECEE 1px solid;
+	/*line-height: */
+}
+.good_item_title{
+	height: 40px;
+	/*border-bottom: #EAECEE 1px solid;*/
+	line-height: 40px;
+	font-size: 15px;
+	text-align: center;
+}
+.detail:hover{
+	/*position: absolute;*/
+	color: #9CD197;
+}
+.money{
+	color:#F99A62;
+	display: inline-block; 
+	margin-top: 20px;
+	margin-left: 10px;
+	font-size: 14px;
+}
+.head{
+	height: 30px;
+	width: 30px;
+	border-radius: 30px;
+	margin-top: 10px;
+	margin-left: 5px;
+	/*line-height: 40px;*/
+}
+.company_name{
+	display: inline-block;
+	padding-left: 5px;
+	font-size: 8px;
+	margin-top: 13px;
+	color: #8796A8;
+}
+
+.board1_title_item
+{
+	width: 100%;
+	height: 50px;
+	margin-top: 20px;
+	line-height: 50px;
+	border-bottom: #EAECEE 1px solid;
+}
+.board1_title_item:last-child{
+	border: none;
+}
+.board1_content,.board2_content,.board3_content
+{
+	margin:0 auto;
+	width: 90%;
+	height: 100%;
+	padding: 10px;
+	padding-top: 30px;
+}
+.board2{
+	margin-top: 10px;
+}
+.board3{
+	margin-top: 10px;
+}
+.prj_name{
+	position: relative;
+}
+.btn-info{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+.describe_area{
+	width: 100%;
+	height: 270px;
+	background-color: red;
+}
+.jumbotron{
+	background-color: #F8F8F8
+}
+.jumbotron2{
+	background-color: #F8F8F8;
+	margin-top:20px;
+}

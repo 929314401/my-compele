@@ -1,0 +1,14 @@
+com\project\dubbo\dto\PjInformationExample$Criterion.class
+com\project\dubbo\dto\StudioApplyExample$Criteria.class
+com\project\dubbo\dto\PjInformation.class
+com\project\dubbo\dto\StudioApplyExample.class
+com\project\dubbo\dto\StudioApply.class
+com\project\dubbo\service\StudioApplyService.class
+com\project\dubbo\dto\PageBean.class
+com\project\dubbo\dto\PjInformationExample$Criteria.class
+com\project\dubbo\dto\StudioApplyExample$GeneratedCriteria.class
+com\project\dubbo\dto\StartStudio.class
+com\project\dubbo\dto\PjInformationExample$GeneratedCriteria.class
+com\project\dubbo\dto\StudioApplyExample$Criterion.class
+com\project\dubbo\service\PjInformationService.class
+com\project\dubbo\dto\PjInformationExample.class

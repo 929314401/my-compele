@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript" src="../../js/jquery-1.6.4.js"></script>
+
+<body>
+
+项目名称:<input type="text" id="p_message">
+开始时间:<input type="text" id="p_startTime">
+结束时间:<input type="text" id="p_stopTime">
+价钱:<input type="text" id="p_money">
+<input type="submit" id="send" value="发布项目">
+<input type="hidden" id="token">
+
+</body>
+<script type="text/javascript">
+    window.onload=function () {
+        var st = window.location.search;
+        var queryString = st.substring(st.indexOf("?") + 1);
+        var ss = queryString.split("=");
+        var token = ss[1];
+        //alert(token)
+        $("#token").val(token);
+
+    }
+
+    $("#send").click(function () {
+        var token=$("#token").val();
+        var data={
+            "message":$("#p_message").val(),
+            "money":$("#p_money").val(),
+            "starttime":$("#p_startTime").val(),
+            "stoptime":$("#p_stopTime").val(),
+        }
+        //alert(token)
+        $.ajax({
+            url: "/company/sendproject?token="+token,
+            type: "post",
+            dataType:"json",
+            contentType : 'application/json',
+            data:JSON.stringify(data),
+            success:function (result) {
+                if(result.message=="success"){
+                    window.location.href="/company/Allproject?token="+token;
+                }else {
+                    alert("发布失败");
+                    window.location.reload();
+
+                }
+
+            }
+        })
+    })
+</script>
+</html>

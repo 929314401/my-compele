@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript" src="../../js/jquery-1.6.4.js"></script>
+<script type="text/javascript" src="../../js/liststudio.js"></script>
+<body>
+    <input type="hidden" id="token">
+    <div>
+        <thead>
+            <tr>
+                <td>工作室名称</td>
+                <td>申请时间</td>
+                <td>星</td>
+                <td>完成度</td>
+            </tr>
+            <div id="lists"/>
+        </thead>
+    </div>
+    <a id="nextpjProject" href="javascript:void(0)" onclick="beforepjPage()" >上一页</a>
+    第<input id="page" type="text" value="1">页
+    <a id="beforepjProject" href="javascript:void(0)" onclick="nextpjPage()" >下一页</a>
+    <br>
+    rows:<input  id="rows" type="text" value="2">
+    sum:<input id="sum" type="text" >
+    <input type="hidden" id="ismore">
+</body>
+</html>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="company-edge-service" />
+        <module name="message-dubbo-service" />
+        <module name="message-dubbo-service-api" />
+        <module name="payment-dubbo-service" />
+        <module name="payment-dubbo-service-api" />
+        <module name="picture-dubbo-service" />
+        <module name="project-dubbo-service-api" />
+        <module name="studio-edge-service" />
+        <module name="studio-work-dubbo-service" />
+        <module name="studio-work-dubbo-service-api" />
+        <module name="studio-work-edge-service" />
+        <module name="user-dubbo-service" />
+        <module name="user-dubbo-service-api" />
+        <module name="user-edge-service" />
+        <module name="user-edge-service-client" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="company-dubbo-service" target="1.7" />
+      <module name="company-dubbo-service-api" target="1.5" />
+      <module name="photo-dubbo-service-api" target="1.5" />
+      <module name="picture-dubbo-service" target="1.5" />
+      <module name="user-dubbo-edge" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

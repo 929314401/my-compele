@@ -1,0 +1,18 @@
+.nav{
+	/*background-color: red;*/
+}
+.navbar{
+	background-color: transparent;
+	position: absolute;
+	border: none; 
+}
+.nav-title{
+	color: white;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.jumbotron
+{
+	padding-top: 0px;
+	padding-bottom: 0px;
+}

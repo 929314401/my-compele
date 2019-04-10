@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="UTF-8">
+	<title>天眼登陆</title>
+</head>
+<link rel="stylesheet" type="text/css" href="../../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/login_style.css">
+<script type="text/javascript" src="../../js/jquery-1.6.4.js"></script>
+<body>
+	<div class="login_board">
+		<!--<form  id="form1"  >-->
+			<div class="input-group">
+				<h3><center>登陆</center></h3>
+				<input type="text" name="userid" class="userid" placeholder="用户名">
+				<input type="password" name="password" class="password"  placeholder="请输入密码">
+				<div class="checkbox">
+    				<label><input type="checkbox"> 记住我</label>
+				<a href="" class="getback">找回密码</a>
+				<a href="/user/regedit" >注册</a>
+				</div>
+				<button class="btn btn-info" id="sub">登陆</button>
+			</div>
+
+		<!--</form>-->
+	</div>
+</body>
+ <script type="text/javascript">
+          $(function() {
+              //登录
+              $("#sub").click(function(){
+				var usernameval = $(":input[name='userid']").val().trim();
+				var passwordval = $(":input[name='password']").val().trim();
+				//alert(usernameval);
+       			$.ajax({
+                    url:"/user/login",
+                    type:"post",
+                    dataType:"json",
+					data:{"userid":usernameval,"password":passwordval},
+                    //contentType : 'application/json',
+					//data : JSON.stringify({"userid":usernameval,"password":passwordval}),
+                    async:false,
+					success:function(result){
+                        if("success"==result.message){
+                            //1-公司，2-工作室，3-系统
+                        	 if(result.code=="1"){
+
+                                 window.location.href="http://localhost:8082/company/welcome?" +
+									 "token="+result.token;
+
+                  				//window.location.href="http://localhost:8082/company/welcome"
+                        	 }else if(result.code=="2"){
+                                 alert("工作室")
+							 }else {
+                                 alert("系统")
+							 }
+
+
+                        }else{
+                             alert("用户名或者密码不对");
+                        }
+                   },
+                    error: function(data,XMLHttpRequest, textStatus, errorThrown) {
+						alert("错误")
+                    }
+
+                })
+				
+				
+
+          	})
+
+          })
+     </script>
+
+<footer>
+	<center>Copyright © 2014-2018<a href="#">后台登陆</a></center>
+</footer>
+</html>

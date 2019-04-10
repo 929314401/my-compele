@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.yxl</groupId>
+    <artifactId>outsource</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>message-dubbo-service-api</module>
+        <module>message-dubbo-service</module>
+        <module>user-dubbo-service-api</module>
+        <module>user-dubbo-service</module>
+        <module>user-edge-service</module>
+        <module>studio-edge-service</module>
+        <module>studio-work-dubbo-service-api</module>
+        <module>studio-work-dubbo-service</module>
+        <module>studio-work-edge-service</module>
+        <module>user-edge-service-client</module>
+        <module>project-dubbo-service-api</module>
+        <module>project-dubbo-service</module>
+        <module>payment-dubbo-service-api</module>
+        <module>payment-dubbo-service</module>
+        <module>company-edge-service</module>
+        <module>studio-edge-service</module>
+
+    </modules>
+
+
+</project>

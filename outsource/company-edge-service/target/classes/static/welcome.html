@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript" src="../../js/jquery-1.6.4.js"></script>
+
+<body>
+    公司名字：<input type="text" id="name">
+    公司简介: <input type="text" id="desc">
+    公司注册时间： <input type="text" id="register">
+    <input type="submit" id="mix" value="修改">
+    <input type="hidden" id="token">
+    <a href="javascript:void (0)" onclick="sendpj()">发布项目</a>
+
+    <div>
+
+    <a href="javascript:void(0)" onclick="allpj()">查看所有项目</a>
+        <thead>
+            <tr>
+                <td>介绍</td>
+                <td>开始时间</td>
+             <!--   <td>结束时间</td>-->
+                <td>价钱</td>
+             <!--   <td>状态</td>
+                <td>接手工作室</td>-->
+            </tr>
+            <div id="lists"/>
+
+        </thead>
+    </div>
+
+    <!--  <a id="nextpjProject" href="javascript:void(0)" onclick="nextpjPage()" >上一页</a>-->
+    第<input id="page" type="text" value="1">页
+    <!--<a id="beforepjProject" href="javascript:void(0)" onclick="beforepjPage()" >下一页</a>-->
+    <br>
+    rows:<input  id="rows" type="text" value="10">
+
+
+</body>
+
+<script type="text/javascript">
+    window.onload=function () {
+        var st=window.location.search;
+        var queryString = st.substring(st.indexOf("?") + 1);
+        var ss=queryString.split("=");
+        var token=ss[1];
+        //alert(token)
+        $("#token").val(token);
+        //公司信息
+        $.ajax({
+            url: "/company/selectOwn?token="+token,
+            type: "post",
+            dataType:"json",
+            success:function(result){
+                var date = new Date(parseInt(result.instant.registertime, 10));
+                var usercompany=result.instant;
+                $("#name").val(result.instant.name);
+                $("#desc").val(result.instant.message);
+                var register=getDateTime(date)
+                $("#register").val(register);
+                alert(register)
+            }
+
+        })
+
+
+        $.ajax({
+            url: "/company/listproject?token="+token,
+            type: "post",
+            dataType:"json",
+            data:{
+                "page" : $("#page").val(),
+                "rows" : $("#rows").val(),
+            },
+            success:function(result){
+                var json = eval(result);
+                $.each(json, function (index, item) {
+                    //循环获取数据
+                    var id=json[index].id;
+                    var message = json[index].message;
+                    var startTime;
+                    if(json[index].starttime==null){
+                        startTime="未设置";
+                    }else{
+                        var date = new Date(parseInt(json[index].starttime, 10));
+                        startTime=getDateTime(date);
+                    }
+                    var money = json[index].money;
+
+                    $("#lists").html($("#lists").html() +
+                        "<tr>" +
+                        "<td>" + message + "</td>"+
+                        "<td>" +startTime+"</td>"+
+                        "<td>"+money+"</td>" +
+                            "</tr>"
+
+                        /*"<td><a href='javascript:void(0)' onclick='subgo("+id+")'/>选他</td></tr>"*/
+                    ); //+ " - " + idnumber + " - " + sex + "<br/>")
+                })
+            }
+        })
+
+        //获取日期格式
+        function getDate(date) {
+
+            var year = date.getFullYear();
+
+            var month = date.getMonth() + 1;
+
+            var day = date.getDate();
+
+            return year + "-" + month + "-" + day ;
+        }
+        //获取日期时间格式
+        function getDateTime(date) {
+
+            var year = date.getFullYear();
+
+            var month = date.getMonth() + 1;
+
+            var day = date.getDate();
+
+            var hh = date.getHours();
+
+            var mm = date.getMinutes();
+
+            var ss = date.getSeconds();
+
+            return year + "-" + month + "-" + day + " " + hh + ":" + mm + ":" + ss;
+        }
+
+
+    }
+
+
+    $(function () {
+        $("#mix").click(function () {
+           var token=$("#token").val();
+           var data =  {"name" : $("#name").val(),
+                        "message" : $("#desc").val(),
+                        "registertime" :$("#register").val()
+
+           }
+
+           alert(token)
+           $.ajax({
+               url: "/company/updateOwn?token="+token,
+               type: "post",
+               dataType:"json",
+               contentType : 'application/json',
+               data:JSON.stringify(data),
+               success:function (result) {
+                   alert(result.message)
+               }
+           })
+       })
+
+
+
+
+    })
+    function sendpj() {
+        //http://localhost:8082/company/welcome?
+        window.location.href="/company/sendProject?token="+$("#token").val();
+    }
+    function allpj() {
+        window.location.href="/company/allproject?token="+$("#token").val();
+    }
+
+</script>
+</html>
